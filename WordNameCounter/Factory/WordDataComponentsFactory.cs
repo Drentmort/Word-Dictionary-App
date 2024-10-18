@@ -36,5 +36,6 @@ namespace WordNameCounter.Factory
 		public static IDataScanExecutor CreateWordDataScanExecutor(string filename, IEnumerable<string> separators, Encoding encoding) => new WordDataScanFromFileExecutor(filename, encoding, separators);
 
 		public static IDataCountScannerManager CreateWordDataCountScanManager(IEnumerable<string> separators, Encoding encoding) => new WordDataCountScannerManager(separators, encoding);
+		public static IDataCountScannerManager CreateSimpleWordDataCountScanManager(Encoding encoding) => new SimpleWordDataCountScannerManager(encoding);
 	}
 }
