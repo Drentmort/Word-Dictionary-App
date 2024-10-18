@@ -9,5 +9,6 @@ namespace WordNameCounterFacade.Interfaces
 	public interface IDataCountScannerManager
 	{
 		Task ScanFileAsync(string fromFile, string toFile);
+		void ScanFile(string fromFile, string toFile);
 	}
 }
