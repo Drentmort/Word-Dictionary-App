@@ -19,10 +19,15 @@ namespace WordNameCounter.Realization
 			_encoding = encoding;
 		}
 
+		public void ScanFile(string fromFile, string toFile)
+		{
+			throw new NotImplementedException();
+		}
+
 		public async Task ScanFileAsync(string fromFile, string toFile)
 		{
 			var executor = WordDataComponentsFactory.CreateWordDataScanExecutor(fromFile, _wordSeparators, _encoding);
-			var result = await executor.ExecuteCountingScanAsync();
+			var result = await executor.ExecuteCountingScanAsync().ConfigureAwait(false);
 			using var toFileStream = new FileStream(toFile, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
 			await Task.Run(() => result.WriteTo(toFileStream, _encoding)).ConfigureAwait(false);
 		}
